@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Notifications</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  color: #fff;
+}
+.background {
+  position: fixed;
+  inset: 0;
+  background: url("https://images.unsplash.com/photo-1525182008055-f88b95ff7980");
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px);
+  z-index: -1;
+}
+.glass {
+  width: 430px;
+  padding: 25px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.25);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.header h2 {
+  font-size: 20px;
+}
+.badge {
+  background: #00ffcc;
+  color: #000;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.actions button {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.actions button:hover {
+  background: rgba(255,255,255,0.4);
+}
+.notification {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.1);
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+.notification:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.notification.unread {
+  border-left: 4px solid #00ffcc;
+}
+
+.icon {
+  font-size: 18px;
+}
+
+.text {
+  flex: 1;
+}
+
+.text p {
+  font-size: 14px;
+}
+
+.text small {
+  opacity: 0.8;
+}
+
+.time {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.delete {
+  color: #ff6b6b;
+  cursor: pointer;
+}
+.light {
+  color: #000;
+}
+
+.light .glass {
+  background: rgba(255,255,255,0.6);
+  color: #000;
+}
+
+.light .actions button {
+  color: #000;
+}
+
+.light .badge {
+  background: #000;
+  color: #fff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="glass">
+  <div class="header">
+    <h2><i class="fa-solid fa-bell"></i> Notifications</h2>
+    <span class="badge" id="count">2</span>
+  </div>
+
+  <div class="actions">
+    <button onclick="markAllRead()">Mark all read</button>
+    <button onclick="toggleMode()">🌗 Mode</button>
+  </div>
+
+  <div id="list">
+
+    <div class="notification unread">
+      <i class="icon fa-solid fa-credit-card"></i>
+      <div class="text">
+        <p><strong>Payment Successful</strong></p>
+        <small>₹2,000 debited</small>
+      </div>
+      <span class="time">2m</span>
+      <i class="delete fa-solid fa-trash" onclick="deleteNote(this)"></i>
+    </div>
+
+    <div class="notification unread">
+      <i class="icon fa-solid fa-lock"></i>
+      <div class="text">
+        <p><strong>Login Alert</strong></p>
+        <small>New login detected</small>
+      </div>
+      <span class="time">10m</span>
+      <i class="delete fa-solid fa-trash" onclick="deleteNote(this)"></i>
+    </div>
+
+    <div class="notification">
+      <i class="icon fa-solid fa-bolt"></i>
+      <div class="text">
+        <p><strong>Bill Reminder</strong></p>
+        <small>Electricity bill due</small>
+      </div>
+      <span class="time">1d</span>
+      <i class="delete fa-solid fa-trash" onclick="deleteNote(this)"></i>
+    </div>
+
+  </div>
+</div>
+
+<!-- ---------- JS ---------- -->
+<script>
+function updateCount() {
+  const unread = document.querySelectorAll(".unread").length;
+  document.getElementById("count").innerText = unread;
+}
+
+function markAllRead() {
+  document.querySelectorAll(".notification").forEach(n => {
+    n.classList.remove("unread");
+  });
+  updateCount();
+}
+
+function deleteNote(el) {
+  el.parentElement.remove();
+  updateCount();
+}
+
+function toggleMode() {
+  document.body.classList.toggle("light");
+}
+
+updateCount();
+</script>
+
+</body>
+</html>

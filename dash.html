@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank Dashboard</title>
+    <link rel="stylesheet" href="dash.css">
+</head>
+<style>
+     body{
+      position: relative;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+     }
+   body::before {
+    content:"";
+        position: absolute;
+        inset: 0;
+    background-image: 
+    url("https://static.vecteezy.com/system/resources/previews/026/838/359/original/online-banking-technology-concept-vector.jpg");
+    background-size: cover;
+    background-position: center;
+     filter: blur(2px);
+       z-index: -7;
+   }
+
+   .card {
+  background: rgba(149, 146, 146, 0.15); 
+   }
+   .balance{
+    color: black;
+   }
+   .logout{
+    padding: 10px 26px;
+    font-size: 17px;
+    font-weight: 600;
+    color: black;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    cursor:pointer;
+   }
+   .logout-box{
+    margin-top: 30px;
+    text-align: center;
+   }
+   .actions{
+   padding:12px 18px;
+  border:none;
+  border-radius:10px;
+  backdrop-filter: blur(10px);
+  
+   }
+   .t{
+     padding:5px 10px ;
+     height: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    color: black;
+     background: rgba(255,255,255,0.18);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    cursor:pointer;
+   }
+   .p{
+     padding:5px 14px ;
+     height: 30px;
+    font-size: 15px;
+    height: 30px;
+    font-weight: 600;
+    color: black;
+     background: rgba(255,255,255,0.18);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    cursor:pointer;
+   }
+   .s{
+     padding:5px 14px ;
+     height: 30px;
+    font-size: 15px;
+    height: 30px;
+    font-weight: 600;
+    color: black;
+     background: rgba(255,255,255,0.18);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    cursor:pointer;
+   }
+   /* Sidebar */
+.sidebar {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 220px;
+  padding: 25px;
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Logo */
+.logo {
+  color: white;
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* Navigation Items */
+.nav-item {
+  text-decoration: none;
+  color: white;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 16px;
+
+  background: rgba(255, 255, 255, 0.15);
+  transition: 0.3s;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateX(5px);
+}
+
+/* AI Chat Button */
+.ai-chat {
+  margin-top: 25px;
+}
+
+.ai-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+.ai-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 198, 255, 0.8);
+}
+    </style>
+<body>
+    <div class="sidebar">
+  <h2 class="logo">Bank Of Navi Mumbai</h2>
+
+  <a href="#" class="nav-item" onclick="window.location.href='help.html'">❓ Help</a>
+  <a href="#" class="nav-item" onclick="window.location.href='co.html'" >📞 Contact</a>
+  <a href="#" class="nav-item" onclick="window.location.href='not.html'">🔔 Notifications</a>
+  <a href="#" class="nav-item" onclick="window.location.href='set.html'">⚙️ Settings</a>
+   <a href="#" class="nav-item small" onclick="window.location.href='sce.html'">🔐 Security</a>
+  <div class="ai-chat">
+    <button class="ai-btn" onclick="window.location.href='ai.html'">🤖 AI Chat</button>
+  </div>
+</div>
+
+    <div class="background"></div>
+    <div class="content">
+<div class="dashboard">
+    <h1>Welcome to Your Account</h1>
+    <div class="card balance-card">
+        <h2>Account Balance</h2>
+        <p class="balance">₹ 50,000</p>
+        <span class="type">Savings Account</span>
+    </div>
+    <div class="card">
+        <h2>Account Details</h2>
+        <p><strong>Name:</strong> Sonali Nair</p>
+        <p><strong>Account No:</strong> **** **** 3456</p>
+    </div>
+    <div class="card">
+        <h2>Recent Transactions</h2>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Amount</th>
+            </tr>
+            <tr>
+                <td>25-Jan-2026</td>
+                <td>bills</td>
+                <td class="debit">-₹1,000</td>
+            </tr>
+            <tr>
+                <td>24-Jan-2026</td>
+                <td>Salary</td>
+                <td class="credit">-₹20,000</td>
+            </tr>
+            <tr>
+                <td>22-Jan-2026</td>
+                <td>online shopping</td>
+                <td class="debit">-₹5,000</td>
+            </tr>
+            <tr>
+                <td>20-Jan-2026</td>
+                <td>rent</td>
+                <td class="debit">-₹5,000</td>
+            </tr>
+            <tr>
+                <td>18-Jan-2026</td>
+                <td>Interest credit</td>
+                <td class="credit">+₹700</td>
+            </tr>
+        </table>
+            <div class="actions">
+  <button class="t"
+  onclick="window.location.href='option.html'">Transfer</button>
+  <button class="p"
+  onclick="window.location.href='pay.html'">Pay Bills</button>
+  <button class="s"
+  onclick="window.location.href='state.html'">statement</button>
+    </div>
+    <div  class="logout-box">
+  <button class="logout" 
+  onclick="window.location.href='logout.html'">Logout</button>
+</div>
+</body>
+</html>

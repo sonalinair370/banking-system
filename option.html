@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transfer Options</title>
+</head>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    width: 80%;
+    max-width: 900px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.container h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 25px;
+}
+.options {
+     display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.options {
+  grid-column: 2;
+}
+.card {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    text-align: center;
+    color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+.card h3 {
+    margin-bottom: 10px;
+}
+.card p {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 15px;
+}
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background: #ffffff;
+    color: #000;
+    font-weight: bold;
+}
+button:hover {
+    background: #00e6e6;
+}
+ body{
+        margin:0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+    body::before{
+         content:"";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+        url("https://paysend.com/images/what-is-a-card-to-card-money-transfer-1200.jpg");
+        background-size: cover;
+       background-position: center; 
+       filter:blur(4px);
+       z-index: -1;
+       transform: scale(1.1);
+    }
+    </style>
+<body>
+
+<div class="container">
+    <h2>Transfer Money</h2>
+
+    <div class="options">
+        <div class="card">
+            <h3>💸 UPI Transfer</h3>
+            <p>Send money using UPI ID</p>
+            <button onclick="window.location.href='upitr.html'">Proceed</button>
+        </div>
+        <div class="card">
+            <h3>🏦 Bank Transfer</h3>
+            <p>Account number & IFSC</p>
+            <button onclick="window.location.href='transfer.html'">Proceed</button>
+        </div>
+        <div class="card">
+            <h3>💳 Debit Card</h3>
+            <p>Pay using debit card</p>
+            <button onclick="window.location.href='debit.html'">Proceed</button>
+        </div>
+        <div class="card">
+            <h3>💳 Credit Card</h3>
+            <p>Pay using credit card</p>
+            <button onclick="window.location.href='credit.html'" >Proceed</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

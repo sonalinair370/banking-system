@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bank Security Center</title>
+
+<style>
+
+/* Background */
+body{
+    margin:0;
+    font-family:'Segoe UI', sans-serif;
+    height:100vh;
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Glass Container */
+.container{
+    width:95%;
+    max-width:1000px;
+    padding:40px;
+    border-radius:20px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border:1px solid rgba(255,255,255,0.2);
+    box-shadow:0 8px 32px rgba(0,0,0,0.5);
+    color:#fff;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:30px;
+    letter-spacing:1px;
+}
+
+/* Cards */
+.card{
+    background: rgba(255,255,255,0.1);
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,0.2);
+}
+
+.card h2{
+    margin-bottom:15px;
+    font-size:18px;
+}
+
+/* Input */
+input{
+    width:100%;
+    padding:12px;
+    margin-bottom:12px;
+    border:none;
+    border-radius:8px;
+    outline:none;
+    background: rgba(255,255,255,0.2);
+    color:#fff;
+}
+
+input::placeholder{
+    color:#ddd;
+}
+
+/* Buttons */
+button{
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+}
+
+/* Primary */
+.primary-btn{
+    background:#00c6ff;
+    color:#000;
+}
+
+.primary-btn:hover{
+    background:#fff;
+}
+
+/* Danger */
+.danger-btn{
+    background:#ff4b5c;
+    color:#fff;
+}
+
+.danger-btn:hover{
+    background:#b30021;
+}
+
+/* Toggle */
+.toggle{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.switch{
+    position:relative;
+    width:50px;
+    height:25px;
+}
+
+.switch input{
+    opacity:0;
+    width:0;
+    height:0;
+}
+
+.slider{
+    position:absolute;
+    cursor:pointer;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:#ccc;
+    transition:.4s;
+    border-radius:25px;
+}
+
+.slider:before{
+    position:absolute;
+    content:"";
+    height:18px;
+    width:18px;
+    left:4px;
+    bottom:3.5px;
+    background:white;
+    transition:.4s;
+    border-radius:50%;
+}
+
+input:checked + .slider{
+    background:#4CAF50;
+}
+
+input:checked + .slider:before{
+    transform: translateX(24px);
+}
+
+/* Activity */
+.activity{
+    font-size:14px;
+    line-height:1.6;
+}
+
+/* Responsive */
+@media(max-width:600px){
+    .container{
+        padding:20px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🏦 Banking Security Center</h1>
+
+    <!-- Change Login Password -->
+    <div class="card">
+        <h2>Change Login Password</h2>
+        <input type="password" placeholder="Current Password">
+        <input type="password" placeholder="New Password">
+        <input type="password" placeholder="Confirm New Password">
+        <button class="primary-btn">Update Password</button>
+    </div>
+
+    <!-- Change Transaction PIN -->
+    <div class="card">
+        <h2>Change Transaction PIN</h2>
+        <input type="password" maxlength="4" placeholder="Current PIN">
+        <input type="password" maxlength="4" placeholder="New 4-digit PIN">
+        <input type="password" maxlength="4" placeholder="Confirm PIN">
+        <button class="primary-btn">Update PIN</button>
+    </div>
+
+    <!-- Two Factor Authentication -->
+    <div class="card toggle">
+        <div>
+            <h2>Two-Factor Authentication (OTP)</h2>
+            <p>Secure transactions with OTP verification</p>
+        </div>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <!-- Login Activity -->
+    <div class="card">
+        <h2>Recent Login Activity</h2>
+        <div class="activity">
+            • Chrome - Windows - 12 Feb 2026 - Mumbai, India <br>
+            • Mobile App - Android - 10 Feb 2026 - Delhi, India <br>
+            • Safari - MacOS - 08 Feb 2026 - Bangalore, India
+        </div>
+    </div>
+
+    <!-- Freeze Account -->
+    <div class="card">
+        <h2>Emergency Account Freeze</h2>
+        <p>If you suspect fraud, temporarily freeze your account.</p>
+        <button class="danger-btn">Freeze Account</button>
+    </div>
+
+    <!-- Logout All Devices -->
+    <div class="card">
+        <h2>Logout From All Devices</h2>
+        <button class="danger-btn">Logout All Sessions</button>
+    </div>
+
+</div>
+
+</body>
+</html>

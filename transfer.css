@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+body {
+    height: 100vh;
+    background: url('https://c8.alamy.com/comp/2S65741/business-and-finance-icons-image-over-black-grid-background-2S65741.jpg');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.transfer-box {
+    width: 380px;
+    padding: 30px;
+    background: rgba(148, 144, 144, 0.523);
+    backdrop-filter: blur(12px);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgb(133, 128, 128);
+    color: rgb(10, 9, 9);
+}
+.transfer-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+label {
+    font-size: 14px;
+}
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+}
+input:disabled {
+    background: rgba(27, 25, 25, 0.4);
+}
+button {
+    width: 100%;
+    padding: 12px;
+    font-weight: 600;
+
+    border: none;
+    border-radius: 8px;
+    background: #919294;
+    color:rgb(16, 14, 14);
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+button:hover {
+     transform: scale(1.05);
+  box-shadow: 0 0 15px #090808d2;
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bank Statement</title>
+</head>
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background: url("https://wallpapers.com/images/hd/neon-blue-background-uq05aqyonxz4grsb.jpg") center/cover no-repeat;
+  opacity: 0.15;
+  z-index: -1;
+}
+
+.statement-card {
+  width: 90%;
+  max-width: 900px;
+  padding: 25px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.statement-card h2 {
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.sub {
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 14px 12px;
+  text-align: center;
+}
+
+th {
+  background: rgba(255,255,255,0.25);
+  font-weight: 600;
+}
+
+tr {
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.credit {
+  color: #6dff9e;
+  font-weight: 600;
+}
+
+.debit {
+  color: #ff7b7b;
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.actions button {
+  padding: 10px 18px;
+  border-radius: 14px;
+  border: none;
+  background: rgba(255,255,255,0.3);
+  backdrop-filter: blur(10px);
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.actions button:hover {
+  background: rgba(255,255,255,0.6);
+}
+    </style>
+<body>
+
+  <div class="bg"></div>
+
+  <div class="statement-card">
+    <h2>Account Statement</h2>
+    <p class="sub">Bank Of Navi Mumbai</p>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>18-Jan-2026</td>
+            <td>Interest Credit</td>
+            <td class="credit">Credit</td>
+            <td class="credit">+ ₹700</td>
+          </tr>
+          <tr>
+            <td>20-Jan-2026</td>
+            <td>Rent</td>
+            <td class="debit">Debit</td>
+            <td class="debit">- ₹5,000</td>
+          </tr>
+          <tr>
+            <td>22-Jan-2026</td>
+            <td>Online Shopping</td>
+            <td class="debit">Debit</td>
+            <td class="debit">- ₹5,000</td>
+          </tr>
+          <tr>
+            <td>24-Jan-2026</td>
+            <td>Salary</td>
+            <td class="credit">Credit</td>
+            <td class="credit">+ ₹20,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="actions">
+      <button>Download PDF</button>
+      <button onclick="window.location.href='dash.html'">Back</button>
+    </div>
+  </div>
+
+</body>
+</html>

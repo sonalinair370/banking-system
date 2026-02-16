@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Help</title>
+</head>
+<style>
+    body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+
+  /* Glassmorphism background */
+  background: linear-gradient(
+      rgba(15, 23, 42, 0.75),
+      rgba(15, 23, 42, 0.75)
+    ),
+    url("https://images.unsplash.com/photo-1518546305927-5a555bb7020d");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.help-container {
+  margin-left: 300px;
+  padding: 40px;
+  color: rgb(215, 201, 201);
+}
+
+/* Title */
+.help-title {
+  font-size: 32px;
+  margin-bottom: 5px;
+}
+
+.help-subtitle {
+  opacity: 0.8;
+  margin-bottom: 30px;
+}
+
+/* Help options */
+.help-options {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 35px;
+}
+
+.help-card {
+  background: rgba(126, 119, 119, 0.18);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.help-card h3 {
+  margin: 12px 0 6px;
+}
+
+.help-card p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.help-card:hover {
+  transform: translateY(-6px);
+  background: rgba(72, 70, 70, 0.97);
+}
+
+/* FAQ */
+.faq-section {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 25px;
+}
+
+.faq-section h2 {
+  margin-bottom: 20px;
+}
+
+.faq-item {
+  margin-bottom: 18px;
+}
+
+.faq-item h4 {
+  margin-bottom: 5px;
+}
+
+.faq-item p {
+  opacity: 0.9;
+  font-size: 14px;
+}
+</style>
+<body>
+<div class="help-container">
+
+  <h1 class="help-title">Help & Support</h1>
+  <p class="help-subtitle">We’re here to assist you</p>
+
+  <!-- Help Options -->
+  <div class="help-options">
+    <div class="help-card">
+      🤖
+      <h3>AI Assistant</h3>
+      <p>Get instant answers to your queries</p>
+    </div>
+
+    <div class="help-card">
+      📞
+      <h3>Customer Care</h3>
+      <p>89285-27298</p>
+    </div>
+
+    <div class="help-card">
+      ✉️
+      <h3>Email Support</h3>
+      <p>support@Bankofnavimumbai.com</p>
+    </div>
+
+    <div class="help-card">
+      📍
+      <h3>Nearest Branch</h3>
+      <p>Find a branch near you</p>
+    </div>
+  </div>
+  <!-- FAQ Section -->
+  <div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <h4>How do I reset my PIN?</h4>
+      <p>You can reset your PIN from the Settings page using registered mobile number.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Why is my transaction pending?</h4>
+      <p>Pending transactions usually complete within 24 hours.</p>
+    </div>
+    <div class="faq-item">
+      <h4>How to contact customer support?</h4>
+      <p>You can reach us via call, email, or AI assistant.</p>
+    </div>
+  </div>
+</div>
+<body>
+</html>

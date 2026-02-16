@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us</title>
+</head>
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: url("https://images.unsplash.com/photo-1508780709619-79562169bc64") no-repeat center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-card {
+  width: 430px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+  color: #fff;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #eee;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 12px;
+  background: #00c6ff;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #fff;
+}
+
+.info {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.back-btn {
+  margin-top: 10px;
+  background: #ffeb3b;
+}
+
+.error {
+  color: #ff5252;
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Popup */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-box {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(15px);
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  color: #fff;
+}
+
+    </style>
+<body>
+  <div class="contact-card">
+    <h1>Contact Us</h1>
+    <p class="subtitle">We’re here to help you</p>
+
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Full Name">
+      <input type="email" id="email" placeholder="Email Address">
+      <input type="text" id="subject" placeholder="Subject">
+      <textarea id="message" rows="4" placeholder="Your Message"></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <p class="error" id="errorMsg"></p>
+
+    <div class="info">
+      <p>📧 support@Bankofnavimumbai.com</p>
+      <p>📞 97734-59212</p>
+    </div>
+
+    <button class="back-btn" onclick="window.location.href='dash.html'">⬅ Back to Dashboard</button>
+  </div>
+
+  <!-- Success Popup -->
+  <div class="popup" id="popup">
+    <div class="popup-box">
+      <h2>✅ Message Sent</h2>
+      <p>Our team will contact you shortly.</p>
+      <button onclick="closePopup()">OK</button>
+    </div>
+  </div>
+  <script>
+     const form = document.getElementById("contactForm");
+const errorMsg = document.getElementById("errorMsg");
+const popup = document.getElementById("popup");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const subject = document.getElementById("subject").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  if (!name || !email || !subject || !message) {
+    errorMsg.textContent = "⚠ Please fill all fields";
+    return;
+  }
+
+  errorMsg.textContent = "";
+  popup.style.display = "flex";
+  form.reset();
+});
+
+function closePopup() {
+  popup.style.display = "none";
+}
+
+function goDashboard() {
+  window.location.href = "dashboard.html"; // change if needed
+}
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pay Bills</title>
+    <link rel="stylesheet" href="pay.css">
+</head>
+<body>
+<div class="toggle">
+    <button onclick="toggleMode()">🌙 / ☀️</button>
+</div>
+<div class="container">
+    <div class="glass-card">
+        <h2>💳 Pay Your Bills</h2>
+        <form onsubmit="showSuccess(event)">
+            <label>Bill Type</label>
+            <select required>
+                <option value="">Select Bill</option>
+                <option>Electricity</option>
+                <option>Water</option>
+                <option>Mobile Recharge</option>
+                <option>Internet</option>
+                <option>Gas</option>
+            </select>
+
+            <label>Customer ID</label>
+            <input type="text" placeholder="Enter Customer ID" required>
+
+            <label>Amount (₹)</label>
+            <input type="number" placeholder="Enter Amount" required>
+
+            <button type="submit">Pay Now</button>
+        </form>
+    </div>
+</div>
+<div class="modal" id="successModal">
+    <div class="modal-box">
+        <h3>✅ Payment Successful</h3>
+        <p>Your bill has been paid successfully.</p>
+        <button onclick="closeModal()">OK</button>
+    </div>
+</div>
+<script>
+    window.onload = () => {
+        const theme = localStorage.getItem("theme") || "dark";
+        document.body.className = theme;
+    };
+    function toggleMode() {
+        document.body.classList.toggle("light");
+        document.body.classList.toggle("dark");
+        localStorage.setItem("theme", document.body.className);
+    }
+    function showSuccess(e) {
+        e.preventDefault();
+        document.getElementById("successModal").style.display = "flex";
+    }
+    function closeModal() {
+        document.getElementById("successModal").style.display = "none";
+    }
+</script>
+</body>
+</html>

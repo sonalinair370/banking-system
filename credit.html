@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Credit Page</title>
+</head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.credit-container {
+    width: 360px;
+    padding: 25px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+.credit-container h2 {
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+.card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.25), rgba(255,255,255,0.05));
+    border-radius: 16px;
+    padding: 20px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.card-number {
+    font-size: 18px;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+.card-name {
+    font-size: 14px;
+}
+.expiry {
+    font-size: 12px;
+    opacity: 0.8;
+}
+.details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.details span {
+    font-size: 12px;
+    opacity: 0.8;
+}
+.details h3 {
+    font-size: 16px;
+    margin-top: 5px;
+}
+.pay-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.3);
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.pay-btn:hover {
+    background: #00c6ff;
+    color: #000;
+    transform: scale(1.03);
+}
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    text-align: center;
+    font-size: 15px;
+}
+input::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+#error {
+    font-size: 13px;
+    margin-bottom: 10px;
+    color: red;
+}
+    </style>
+<body>
+<div class="credit-container">
+    <h2>💳 Credit Card</h2>
+    <div class="card">
+        <p class="card-number">**** **** **** 2486</p>
+        <p class="card-name">Sonali Nair</p>
+        <p class="expiry">Valid Thru: 08/28</p>
+    </div>
+    <div class="details">
+        <div>
+            <span>Credit Limit</span>
+            <h3>₹1,00,000</h3>
+        </div>
+        <div>
+            <span>Used</span>
+            <h3>₹45,000</h3>
+        </div>
+        <div>
+            <span>Available</span>
+            <h3>₹55,000</h3>
+        </div>
+    </div>
+    <input type="password" id="pin" placeholder="Enter 4-digit PIN" maxlength="4">
+    <p id="error"></p>
+    <button class="pay-btn" onclick="validatePin()">Pay Credit Bill</button>
+</div>
+<script>
+    function validatePin() {
+        const pin = document.getElementById("pin").value;
+        const error = document.getElementById("error");
+        const correctPin = "7898";
+        if (pin === "") {
+            error.textContent = "⚠ Please enter PIN";
+            return;
+        }
+        if (pin.length !== 4) {
+            error.textContent = "⚠ PIN must be 4 digits";
+            return;
+        }
+        if (pin === correctPin) {
+            error.style.color = "lightgreen";
+            error.textContent = "✅ Payment Successful!";
+            alert("Credit bill paid successfully 💳");
+        } else {
+            error.style.color = "red";
+            error.textContent = "❌ Incorrect PIN";
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UPI Payment</title>
+    <link rel="stylesheet" href="upi.css">
+</head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin:0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+    body::before{
+         content:"";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+        url("https://st.adda247.com/https://wpassets.adda247.com/wp-content/uploads/multisite/sites/5/2023/01/03150544/UPI-Collect.png");
+        background-size: cover;
+       background-position: center; 
+       filter:blur(4px);
+       z-index: -1;
+       transform: scale(1.1);
+    }
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.glass-card {
+    width: 350px;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.glass-card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.glass-card input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+}
+
+.glass-card input::placeholder {
+    color: #eee;
+}
+
+.glass-card input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.glass-card button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 12px;
+    background: #00ffcc;
+    color: #000;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.glass-card button:disabled {
+    background: gray;
+    cursor: not-allowed;
+}
+
+.glass-card button:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 255, 204, 0.6);
+}
+
+#msg {
+    margin-top: 12px;
+    text-align: center;
+    font-size: 14px;
+}
+
+    </style>
+<body>
+
+<div class="container">
+    <div class="glass-card">
+        <h2>UPI Payment</h2>
+
+        <input type="text" id="name" placeholder="Account Holder Name">
+        <input type="text" id="upi" placeholder="UPI ID (example@upi)">
+        <input type="number" id="amount" placeholder="Amount">
+
+        <input type="password" id="pin" placeholder="UPI PIN" disabled>
+        <a href="upi.html">
+        <button id="payBtn" disabled>Pay Now</button>
+        </a>
+        <p id="msg"></p>
+    </div>
+</div>
+
+<script>
+const nameInput = document.getElementById("name");
+const upiInput = document.getElementById("upi");
+const amountInput = document.getElementById("amount");
+const pinInput = document.getElementById("pin");
+const payBtn = document.getElementById("payBtn");
+const msg = document.getElementById("msg");
+
+function checkInputs() {
+    if (
+        nameInput.value !== "" &&
+        upiInput.value !== "" &&
+        amountInput.value !== ""
+    ) {
+        pinInput.disabled = false;
+    } else {
+        pinInput.disabled = true;
+        payBtn.disabled = true;
+    }
+}
+
+function checkPin() {
+    if (pinInput.value.length === 4) {
+        payBtn.disabled = false;
+    } else {
+        payBtn.disabled = true;
+    }
+}
+
+nameInput.addEventListener("input", checkInputs);
+upiInput.addEventListener("input", checkInputs);
+amountInput.addEventListener("input", checkInputs);
+pinInput.addEventListener("input", checkPin);
+
+payBtn.addEventListener("click", () => {
+    msg.style.color = "#00ffcc";
+    msg.innerText = "Payment Successful ✅";
+});
+
+</script>
+</body>
+</html>
